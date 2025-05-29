@@ -17,7 +17,7 @@ import com.yogesh.assetmanagement.modelclass.Asset;
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;
-
+import jakarta.validation.ConstraintViolationException;
 
 
 
@@ -49,38 +49,37 @@ public class AddNewAsset {
 			asset.setAssetName(scanner.nextLine());
 			
 			System.out.println("SELECT TYPE :");
-			asset.setAssetType(scanner.next());
+			asset.setAssetType(scanner.nextLine());
 			
 			System.out.println("Enter Serial Number :");
 			asset.setAssetSerialNo(scanner.next());
 			
 			System.out.println("Enter Purchase Date :");
 			asset.setAssetPurchaseDate(simpleDateFormat.parse(scanner.next()));
-			
+		
 			session.save(asset);
 			transaction.commit();
-			session.close();
+
 			
-		} catch (ParseException e) {
+		}catch (ConstraintViolationException e) {
 			
-			System.out.println("\n\nException\n\n");
-			e.printStackTrace();
-			
+
 			Set<ConstraintViolation<Asset>> violations = validator.validate(asset);
 			Iterator<ConstraintViolation<Asset>> iterator = violations.iterator();
 			
 			while (iterator.hasNext()) {
 				ConstraintViolation<Asset> obj = iterator.next();
 				System.out.println("Error:"+obj.getPropertyPath()+" - "+obj.getMessage());
+	
 			}
 			
-			session.close();
+		} catch (ParseException e) {			
+			e.printStackTrace();
 		}
-	
-	}
-	
 
-	
+		session.close();
+				
+	}
 	
 	public static void main(String[] args){
 		AddNewAsset addNewAsset = new AddNewAsset();
