@@ -10,9 +10,10 @@ import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
-
+import org.hibernate.validator.constraints.ISBN;
 
 import com.yogesh.assetmanagement.modelclass.Asset;
+import com.yogesh.assetmanagement.util.SingletonDesignPattren;
 
 import jakarta.validation.ConstraintViolation;
 import jakarta.validation.Validation;
@@ -23,9 +24,13 @@ import jakarta.validation.ConstraintViolationException;
 
 public class AddNewAsset {
 	
+	/**
+	 * This constructor is define for Add New Asset Information in Asset Entity
+	 */
+	
 	public AddNewAsset() {
 		
-		System.out.println("*** ADD ASSET ***");
+		
 		
 		Scanner scanner = new Scanner(System.in);
 		
@@ -34,16 +39,18 @@ public class AddNewAsset {
 		Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
 		
 		Asset asset = new Asset();
+
+		/**
+		 * create Session Object Using SingleDesignPattern Class
+		 * in which we define method buildSessionFactoryInstatnce() 
+		 * to follow Singleton Design Pattern architecture
+		 */
+		Session session = SingletonDesignPattren.buildSessionFactoryInstance().openSession();
 		
-		Configuration configuration = new Configuration();
-		configuration.configure();
-
-		SessionFactory sessionFactory = configuration.buildSessionFactory();
-
-		Session session = sessionFactory.openSession();
 		Transaction transaction = session.beginTransaction();
 		
 		try {
+			System.out.println("*** ADD ASSET ***\n");
 			
 			System.out.println("Enter Asset Name :");
 			asset.setAssetName(scanner.nextLine());
@@ -81,8 +88,4 @@ public class AddNewAsset {
 				
 	}
 	
-	public static void main(String[] args){
-		AddNewAsset addNewAsset = new AddNewAsset();
-	}
-
 }
