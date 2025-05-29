@@ -1,0 +1,3 @@
+com\yogesh\assetmanagement\App.class
+com\yogesh\assetmanagement\operations\AddNewAsset.class
+com\yogesh\assetmanagement\modelclass\Asset.class
