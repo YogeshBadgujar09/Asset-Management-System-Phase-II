@@ -32,7 +32,7 @@ public class AddNewAsset {
 		transaction.commit();
 
 		session.close();
-				
+			
 	}
 	
 	public static void main(String[] args) {

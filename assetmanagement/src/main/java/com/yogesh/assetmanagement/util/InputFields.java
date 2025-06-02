@@ -37,7 +37,7 @@ public class InputFields {
 			asset.setAssetPurchaseDate(simpleDateFormat.parse(scanner.next()));
 			
 		}catch (ConstraintViolationException e) {
-			
+	
 
 			Set<ConstraintViolation<Asset>> violations = validator.validate(asset);
 			Iterator<ConstraintViolation<Asset>> iterator = violations.iterator();

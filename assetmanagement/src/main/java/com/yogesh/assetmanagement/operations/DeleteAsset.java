@@ -6,43 +6,33 @@ import org.hibernate.Session;
 import org.hibernate.Transaction;
 
 import com.yogesh.assetmanagement.modelclass.Asset;
-import com.yogesh.assetmanagement.util.InputFields;
 import com.yogesh.assetmanagement.util.SearchAsset;
 import com.yogesh.assetmanagement.util.SingletonDesignPattren;
 
-public class UpdateAsset {
+public class DeleteAsset {
 
 	public static void main(String[] args) {
-		
-		Transaction transaction ;
+				
+		Asset asset = new Asset();
 		SearchAsset searchAsset = new SearchAsset();
-		InputFields inputFields = new InputFields();
-		Scanner scanner = new Scanner(System.in);
 		
 		Session session = SingletonDesignPattren.buildSessionFactoryInstance().openSession();
 		
-		Asset asset = new Asset();
-		
-		System.out.println("*** UPDATE ASSET FUNTIONALITY ***\n");
+		System.out.println("****** Delete Asset ********\n");
 		
 		asset = searchAsset.search(session);
 		
-		System.out.println("Enter data for Update ... !!!");
+		System.out.println("Are you sure to Delete Asset :[y/n]");
+		String confirmation = new Scanner(System.in).next();
 		
-		asset = inputFields.setAssetInformation(asset);
-		
-		transaction = session.beginTransaction();
-		
-		System.out.println("Are You Sure To Update Data : [y/n]");
-		String confirmation = scanner.next();
+		Transaction transaction = session.beginTransaction();
 		
 		if(confirmation.equalsIgnoreCase("y")) {
-			session.update(asset);
+			session.remove(asset);
 			transaction.commit();
 		}
 		
 		session.close();
-		scanner.close();
 	}
 
 }

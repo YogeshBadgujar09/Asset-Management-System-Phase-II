@@ -32,8 +32,12 @@ public class ViewAsset {
 			System.out.println("****************************************************************************************");
 			System.out.println("Data :" + asset.toString());
 		}
-		
 		session.close();
+	}
+	
+	public static void main(String[] args) {
+		new ViewAsset().viewAssetList();
+	
 	}
 	
 }
