@@ -28,15 +28,16 @@ public class AddNewAsset {
 		
 		Transaction transaction = session.beginTransaction();
 		
+
+		/**
+		 * inputField method define for take data 
+		 * code optimization
+		 */
 		session.save(inputFields.setAssetInformation(asset));
 		transaction.commit();
 
 		session.close();
 			
 	}
-	
-	public static void main(String[] args) {
-		new AddNewAsset();
-	}
-	
+
 }

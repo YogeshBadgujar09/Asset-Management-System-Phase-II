@@ -16,7 +16,7 @@ import jakarta.validation.constraints.Pattern;
 @Entity
 @Table(name="Asset")
 public class Asset {
-	
+
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long assetId;

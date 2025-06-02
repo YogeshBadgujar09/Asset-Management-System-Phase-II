@@ -15,7 +15,7 @@ public class ViewAsset {
 	 * Use List Interface for list all the rows of Asset Entity
 	 */
 	
-	public void viewAssetList() {
+	public ViewAsset() {
 		
 		System.out.println(" *** View All Asset ***");
 		
@@ -34,10 +34,5 @@ public class ViewAsset {
 		}
 		session.close();
 	}
-	
-	public static void main(String[] args) {
-		new ViewAsset().viewAssetList();
-	
-	}
-	
+
 }

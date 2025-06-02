@@ -51,7 +51,7 @@ public class InputFields {
 		} catch (ParseException e) {			
 			e.printStackTrace();
 		}
-		
+		scanner.close();
 		return asset;
 	}
 	
