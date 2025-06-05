@@ -55,7 +55,6 @@ public class UpdateAsset {
 		}
 		
 		session.close();
-		scanner.close();
 		
 	}
 }

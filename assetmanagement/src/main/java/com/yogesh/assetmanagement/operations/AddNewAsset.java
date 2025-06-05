@@ -37,7 +37,6 @@ public class AddNewAsset {
 		transaction.commit();
 
 		session.close();
-			
 	}
 
 }

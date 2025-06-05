@@ -23,7 +23,6 @@ public class InputFields {
 		
 		try {
 			
-			
 			System.out.println("Enter Asset Name :");
 			asset.setAssetName(scanner.nextLine());
 			
@@ -51,7 +50,7 @@ public class InputFields {
 		} catch (ParseException e) {			
 			e.printStackTrace();
 		}
-		scanner.close();
+	
 		return asset;
 	}
 	

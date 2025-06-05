@@ -44,6 +44,6 @@ public class DeleteAsset {
 		}
 		
 		session.close();
-		scanner.close();
+
 	}
 }

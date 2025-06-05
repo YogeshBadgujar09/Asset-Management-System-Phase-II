@@ -35,7 +35,6 @@ public class SearchAsset {
 		
 		}while(asset == null);
 		
-		scanner.close();
 		return asset;
 	}
 }
