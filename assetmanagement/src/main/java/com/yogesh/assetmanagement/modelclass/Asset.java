@@ -2,20 +2,20 @@ package com.yogesh.assetmanagement.modelclass;
 
 import java.util.Date;
 
-import org.hibernate.annotations.DialectOverride.SQLUpdate;
-
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.persistence.Temporal;
+import jakarta.persistence.TemporalType;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Pattern;
 
 @Entity
 @Table(name="Asset")
-public class Asset {
+public class Asset {                
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -34,6 +34,7 @@ public class Asset {
 	private String assetSerialNo;
 	
 	@NotNull
+	@Temporal(TemporalType.DATE)
 	private Date assetPurchaseDate;
 	
 	

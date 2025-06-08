@@ -19,7 +19,8 @@ public class SearchAsset {
 	public Asset search(Session session) {
 		
 		Asset asset = new Asset();
-		Scanner scanner = new Scanner(System.in);
+		Scanner scanner = SingletonDesignPattren.buildScannerObject();
+		
 		do {
 			
 			System.out.println("Enter Asset ID :");

@@ -4,9 +4,12 @@ import com.yogesh.assetmanagement.operations.AddNewAsset;
 import com.yogesh.assetmanagement.operations.DeleteAsset;
 import com.yogesh.assetmanagement.operations.UpdateAsset;
 import com.yogesh.assetmanagement.operations.ViewAsset;
+import com.yogesh.assetmanagement.util.SingletonDesignPattren;
 
-
+import java.io.Console;
 import java.util.Scanner;
+
+import org.hibernate.engine.jdbc.BlobImplementer;
 
 
 /**
@@ -16,7 +19,7 @@ public class App {
 		
 	public void AppFunction() {
 		
-		Scanner scanner = new Scanner(System.in);
+		Scanner scanner = SingletonDesignPattren.buildScannerObject();
 		
 		int choice = 0;
 
@@ -24,8 +27,8 @@ public class App {
 			
 				do {
 					
-					System.out.println("Enter Your Choice ");
-					choice = scanner.nextInt()	;
+					System.out.println("\nEnter Your Choice ");
+					choice = scanner.nextInt();
 				   
 				    
 					switch (choice) {
@@ -46,15 +49,17 @@ public class App {
 						break;
 						
 					case 5: 
+						System.out.println("Exit from Application ... !!!");
 						System.exit(0);
 						break;
-						
+						 
 					default:
-						throw new IllegalArgumentException("Unexpected value: " + choice);
+						System.out.println("enter valid number ... !!!");
+						choice = 5;
 					}
 					
-				}while(choice < 6);
-	
+				}while(choice < 6 );
+
 	}
 	
     public static void main(String[] args)  {

@@ -18,7 +18,7 @@ public class AddNewAsset {
 		InputFields inputFields = new InputFields();
 		Asset asset = new Asset();
 		
-		System.out.println("*** ADD ASSET ***\n");
+		
 		/**
 		 * create Session Object Using SingleDesignPattern Class
 		 * in which we define method buildSessionFactoryInstatnce() 
@@ -28,7 +28,8 @@ public class AddNewAsset {
 		
 		Transaction transaction = session.beginTransaction();
 		
-
+		System.out.println("*** ADD ASSET ***\n");
+		
 		/**
 		 * inputField method define for take data 
 		 * code optimization

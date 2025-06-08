@@ -17,17 +17,22 @@ public class InputFields {
 	
 	public Asset setAssetInformation(Asset asset ) {
 		
-		Scanner scanner = new Scanner(System.in);
+		Scanner scanner = SingletonDesignPattren.buildScannerObject();
+		
+		
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
 		Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
 		
 		try {
 			
+			scanner.nextLine(); // clears leftover newline
+			
 			System.out.println("Enter Asset Name :");
 			asset.setAssetName(scanner.nextLine());
 			
-			System.out.println("SELECT TYPE :");
-			asset.setAssetType(scanner.nextLine());
+			System.out.println("Select Asset Type :");
+			asset.setAssetType(selectAssetType());
+			System.out.println("You select :" + asset.getAssetType());
 			
 			System.out.println("Enter Serial Number :");
 			asset.setAssetSerialNo(scanner.next());
@@ -37,7 +42,6 @@ public class InputFields {
 			
 		}catch (ConstraintViolationException e) {
 	
-
 			Set<ConstraintViolation<Asset>> violations = validator.validate(asset);
 			Iterator<ConstraintViolation<Asset>> iterator = violations.iterator();
 			
@@ -52,6 +56,40 @@ public class InputFields {
 		}
 	
 		return asset;
+	}
+	
+	public String selectAssetType() {
+		
+		String assetType;
+		int choice;
+		
+		Scanner scanner = SingletonDesignPattren.buildScannerObject();
+				
+		System.out.println("1.Laptop  2.Printer  3.Scanner  4.Computer-Accesories  5.Other-Electronic");
+		
+		do {
+				System.out.println("Enter Number to Select Choice :");
+				choice = scanner.nextInt();
+	
+				switch (choice) {
+
+					case 1:
+						return "Laptop";
+							
+					case 2:
+						return "Printer";
+							
+					case 3:
+						return "Scanner";
+		
+					case 4:
+						return "Computer-Accesories";		
+		
+					default:
+						return "Other-Electronics";	
+				}
+		} while (choice < 6);
+
 	}
 	
 }
