@@ -60,7 +60,6 @@ public class InputFields {
 	
 	public String selectAssetType() {
 		
-		String assetType;
 		int choice;
 		
 		Scanner scanner = SingletonDesignPattren.buildScannerObject();

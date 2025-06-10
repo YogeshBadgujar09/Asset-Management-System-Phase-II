@@ -13,5 +13,6 @@
         <property name="show_sql">true</property>
         <property name="hibernate.hbm2ddl.auto">create</property>
        	<mapping class="com.yogesh.assetmanagement.modelclass.Asset"/>
+       	<mapping class="com.yogesh.assetmanagement.operations.ComponentDetail"/>
     </session-factory>
 </hibernate-configuration>
