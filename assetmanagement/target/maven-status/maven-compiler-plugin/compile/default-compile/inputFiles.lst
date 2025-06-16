@@ -1,3 +1,11 @@
 C:\Java Program 2024\eclipse-workspace2\Hibernate-Workspace\assetmanagement\src\main\java\com\yogesh\assetmanagement\App.java
 C:\Java Program 2024\eclipse-workspace2\Hibernate-Workspace\assetmanagement\src\main\java\com\yogesh\assetmanagement\modelclass\Asset.java
+C:\Java Program 2024\eclipse-workspace2\Hibernate-Workspace\assetmanagement\src\main\java\com\yogesh\assetmanagement\modelclass\ComponentDetail.java
 C:\Java Program 2024\eclipse-workspace2\Hibernate-Workspace\assetmanagement\src\main\java\com\yogesh\assetmanagement\operations\AddNewAsset.java
+C:\Java Program 2024\eclipse-workspace2\Hibernate-Workspace\assetmanagement\src\main\java\com\yogesh\assetmanagement\operations\Component.java
+C:\Java Program 2024\eclipse-workspace2\Hibernate-Workspace\assetmanagement\src\main\java\com\yogesh\assetmanagement\operations\DeleteAsset.java
+C:\Java Program 2024\eclipse-workspace2\Hibernate-Workspace\assetmanagement\src\main\java\com\yogesh\assetmanagement\operations\UpdateAsset.java
+C:\Java Program 2024\eclipse-workspace2\Hibernate-Workspace\assetmanagement\src\main\java\com\yogesh\assetmanagement\operations\ViewAsset.java
+C:\Java Program 2024\eclipse-workspace2\Hibernate-Workspace\assetmanagement\src\main\java\com\yogesh\assetmanagement\util\InputFields.java
+C:\Java Program 2024\eclipse-workspace2\Hibernate-Workspace\assetmanagement\src\main\java\com\yogesh\assetmanagement\util\SearchAsset.java
+C:\Java Program 2024\eclipse-workspace2\Hibernate-Workspace\assetmanagement\src\main\java\com\yogesh\assetmanagement\util\SingletonDesignPattren.java

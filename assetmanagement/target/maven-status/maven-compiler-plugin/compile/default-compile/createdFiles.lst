@@ -1,3 +1,11 @@
+com\yogesh\assetmanagement\util\InputFields.class
+com\yogesh\assetmanagement\operations\ViewAsset.class
+com\yogesh\assetmanagement\modelclass\ComponentDetail.class
+com\yogesh\assetmanagement\util\SingletonDesignPattren.class
+com\yogesh\assetmanagement\modelclass\Asset.class
+com\yogesh\assetmanagement\operations\UpdateAsset.class
 com\yogesh\assetmanagement\App.class
 com\yogesh\assetmanagement\operations\AddNewAsset.class
-com\yogesh\assetmanagement\modelclass\Asset.class
+com\yogesh\assetmanagement\operations\Component.class
+com\yogesh\assetmanagement\operations\DeleteAsset.class
+com\yogesh\assetmanagement\util\SearchAsset.class
