@@ -5,6 +5,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.Pattern;
 
 @Entity
 @Table(name="ComponentDetail")
@@ -13,9 +14,17 @@ public class ComponentDetail {
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long componenetId;
+	
+	@Pattern(regexp = "^[A-Za-Z0-9]$" , message = "Please enter valid OS name ... !!! [NOT USE SPECIAL SYMBOLS]")
 	private String operatingSystsem;
+	
+	@Pattern(regexp = "^[A-Za-Z0-9]$" , message = "Please enter valid Processor ... !!! [NOT USE SPECIAL SYMBOLS]")
 	private String processor ;
+	
+	@Pattern(regexp = "^[A-Za-Z0-9]$" , message = "Please enter valid RAM  ... !!! [NOT USE SPECIAL SYMBOLS]")
 	private String ram;
+	
+	@Pattern(regexp = "^[A-Za-Z0-9]$" , message = "Please enter valid Storage ... !!! [NOT USE SPECIAL SYMBOLS]")
 	private String storage ;
 	
 	
