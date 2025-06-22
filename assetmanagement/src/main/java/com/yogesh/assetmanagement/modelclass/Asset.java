@@ -26,7 +26,7 @@ public class Asset {
 	private String assetName;
 	
 	@NotBlank
-	@Pattern(regexp ="^[A-Za-z0-9 ]+$" , message = "Enter valid asset type [enter ALFA-NUMERIC VALUE ")
+	@Pattern(regexp ="^[A-Za-z0-9-]+$" , message = "Enter valid asset type [enter ALFA-NUMERIC VALUE ")
 	private String assetType;
 	
 	@NotBlank

@@ -13,6 +13,7 @@ import com.yogesh.assetmanagement.util.SingletonDesignPattren;
 
 import jakarta.validation.ConstraintValidator;
 import jakarta.validation.ConstraintViolation;
+import jakarta.validation.ConstraintViolationException;
 import jakarta.validation.Validation;
 import jakarta.validation.Validator;
 
@@ -30,30 +31,35 @@ public class Component {
 		Session session = SingletonDesignPattren.buildSessionFactoryInstance().openSession();
 		Transaction transaction = session.beginTransaction();
 		
-		System.out.println("Enter Operating System :");
-		componentDetail.setOperatingSystsem(scanner.nextLine());
-		
-		System.out.println("Enter Processor :");
-		componentDetail.setProcessor(scanner.nextLine());
-		
-		System.out.println("Enter RAM :");
-		componentDetail.setRam(scanner.nextLine());
-		
-		System.out.println("Enter Storage :");
-		componentDetail.setStorage(scanner.nextLine());
-		
-		Set<ConstraintViolation<ComponentDetail>> violation = validator.validate(componentDetail);
-		
-		Iterator<ConstraintViolation<ComponentDetail>> iterator = violation.iterator();
-		
-		while (iterator.hasNext()) {
-			ConstraintViolation<ComponentDetail> obj = iterator.next();
-			System.out.println("Error:"+obj.getPropertyPath() + " - " + obj.getMessage());
+		try {
+			
+			System.out.println("Enter Operating System :");
+			componentDetail.setOperatingSystsem(scanner.nextLine());
+			
+			System.out.println("Enter Processor :");
+			componentDetail.setProcessor(scanner.nextLine());
+			
+			System.out.println("Enter RAM :");
+			componentDetail.setRam(scanner.nextLine());
+			
+			System.out.println("Enter Storage :");
+			componentDetail.setStorage(scanner.nextLine());
+			
+			session.save(componentDetail);
+			transaction.commit();
+			
+		}catch (ConstraintViolationException e) {
+			
+			Set<ConstraintViolation<ComponentDetail>> violation = validator.validate(componentDetail);
+			
+			Iterator<ConstraintViolation<ComponentDetail>> iterator = violation.iterator();
+			
+			while (iterator.hasNext()) {
+				ConstraintViolation<ComponentDetail> obj = iterator.next();
+				System.out.println("Error:"+obj.getPropertyPath() + " - " + obj.getMessage());
 
+			}
 		}
-		
-		session.save(componentDetail);
-		transaction.commit();
 		
 		session.close();		
 	}
