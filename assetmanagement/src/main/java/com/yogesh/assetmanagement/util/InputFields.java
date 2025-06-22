@@ -18,43 +18,33 @@ public class InputFields {
 	public Asset setAssetInformation(Asset asset ) {
 		
 		Scanner scanner = SingletonDesignPattren.buildScannerObject();
-		
-		
 		SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd-MM-yyyy");
-		Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
+			
+		scanner.nextLine(); // clears leftover newline
 		
-		try {
-			
-			scanner.nextLine(); // clears leftover newline
-			
-			System.out.println("Enter Asset Name :");
-			asset.setAssetName(scanner.nextLine());
-			
-			System.out.println("Select Asset Type :");
-			asset.setAssetType(selectAssetType());
-			System.out.println("You select :" + asset.getAssetType());
-			
-			System.out.println("Enter Serial Number :");
-			asset.setAssetSerialNo(scanner.next());
-			
-			System.out.println("Enter Purchase Date :");
-			asset.setAssetPurchaseDate(simpleDateFormat.parse(scanner.next()));
-			
-		}catch (ConstraintViolationException e) {
-	
-			Set<ConstraintViolation<Asset>> violations = validator.validate(asset);
-			Iterator<ConstraintViolation<Asset>> iterator = violations.iterator();
-			
-			while (iterator.hasNext()) {
-				ConstraintViolation<Asset> obj = iterator.next();
-				System.out.println("Error:"+obj.getPropertyPath()+" - "+obj.getMessage());
-	
+		System.out.println("Enter Asset Name :");
+		asset.setAssetName(scanner.nextLine());
+		
+		System.out.println("Select Asset Type :");
+		asset.setAssetType(selectAssetType());
+		System.out.println("You select :" + asset.getAssetType());
+		
+		System.out.println("Enter Serial Number :");
+		asset.setAssetSerialNo(scanner.next());
+		
+		boolean flag;
+		
+		do {
+			try {
+				System.out.println("Enter Purchase Date :");
+				asset.setAssetPurchaseDate(simpleDateFormat.parse(scanner.next()));
+				flag = true ;
+			}catch (ParseException e) {			
+				System.out.println("Please enter valid Date [format must dd-MM-yyyy] ... !!! ");
+				flag = false ;
 			}
+		}while(!flag);
 			
-		} catch (ParseException e) {			
-			e.printStackTrace();
-		}
-	
 		return asset;
 	}
 	
@@ -90,5 +80,5 @@ public class InputFields {
 		} while (choice < 6);
 
 	}
-	
+
 }

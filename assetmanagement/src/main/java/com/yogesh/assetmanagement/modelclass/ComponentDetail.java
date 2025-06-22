@@ -15,16 +15,16 @@ public class ComponentDetail {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Long componenetId;
 	
-	@Pattern(regexp = "^[A-Za-Z0-9]$" , message = "Please enter valid OS name ... !!! [NOT USE SPECIAL SYMBOLS]")
+	@Pattern(regexp = "^[A-Za-z0-9]+$" , message = "Please enter valid OS name ... !!! [NOT USE SPECIAL SYMBOLS]")
 	private String operatingSystsem;
 	
-	@Pattern(regexp = "^[A-Za-Z0-9]$" , message = "Please enter valid Processor ... !!! [NOT USE SPECIAL SYMBOLS]")
+	@Pattern(regexp = "^[A-Za-z0-9]+$" , message = "Please enter valid Processor ... !!! [NOT USE SPECIAL SYMBOLS]")
 	private String processor ;
 	
-	@Pattern(regexp = "^[A-Za-Z0-9]$" , message = "Please enter valid RAM  ... !!! [NOT USE SPECIAL SYMBOLS]")
+	@Pattern(regexp = "^[A-Za-z0-9]+$" , message = "Please enter valid RAM  ... !!! [NOT USE SPECIAL SYMBOLS]")
 	private String ram;
 	
-	@Pattern(regexp = "^[A-Za-Z0-9]$" , message = "Please enter valid Storage ... !!! [NOT USE SPECIAL SYMBOLS]")
+	@Pattern(regexp = "^[A-Za-z0-9]+$" , message = "Please enter valid Storage ... !!! [NOT USE SPECIAL SYMBOLS]")
 	private String storage ;
 	
 	
