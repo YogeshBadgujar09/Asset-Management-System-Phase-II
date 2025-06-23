@@ -1,9 +1,17 @@
 package com.yogesh.assetmanagement.util;
 
+import java.util.Iterator;
 import java.util.Scanner;
+import java.util.Set;
 
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
+import org.hibernate.query.NativeQuery.ReturnableResultNode;
+import org.hibernate.sql.Template;
+
+import jakarta.validation.ConstraintViolation;
+import jakarta.validation.Validation;
+import jakarta.validation.Validator;
 
 public class SingletonDesignPattren {
 	
@@ -46,4 +54,21 @@ public class SingletonDesignPattren {
 		return scanner;
 	}
 	
+	public static <T> boolean validationCheck(T t) {
+		
+		boolean  flag = true ;
+		
+		Validator validator = Validation.buildDefaultValidatorFactory().getValidator();
+		
+		Set<ConstraintViolation<T>> violations = validator.validate(t);
+		Iterator<ConstraintViolation<T>> iterator = violations.iterator();
+		
+		while (iterator.hasNext()) {
+			ConstraintViolation<T> obj = iterator.next();
+			System.out.println("Error:" + obj.getPropertyPath() + " - " + obj.getMessage());
+			flag = false;
+		}
+		
+		return flag;
+	}
 }

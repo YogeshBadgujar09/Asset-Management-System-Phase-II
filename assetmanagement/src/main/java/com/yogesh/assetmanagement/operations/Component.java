@@ -30,9 +30,7 @@ public class Component {
 		
 		Session session = SingletonDesignPattren.buildSessionFactoryInstance().openSession();
 		Transaction transaction = session.beginTransaction();
-		
-		try {
-			
+					
 			System.out.println("Enter Operating System :");
 			componentDetail.setOperatingSystsem(scanner.nextLine());
 			
@@ -45,22 +43,12 @@ public class Component {
 			System.out.println("Enter Storage :");
 			componentDetail.setStorage(scanner.nextLine());
 			
-			session.save(componentDetail);
-			transaction.commit();
-			
-		}catch (ConstraintViolationException e) {
-			
-			Set<ConstraintViolation<ComponentDetail>> violation = validator.validate(componentDetail);
-			
-			Iterator<ConstraintViolation<ComponentDetail>> iterator = violation.iterator();
-			
-			while (iterator.hasNext()) {
-				ConstraintViolation<ComponentDetail> obj = iterator.next();
-				System.out.println("Error:"+obj.getPropertyPath() + " - " + obj.getMessage());
-
+			if(SingletonDesignPattren.validationCheck(componentDetail)) {
+				session.save(componentDetail);
+				transaction.commit();
+				System.out.println("Data Save suceessfully ... !!!");
 			}
-		}
-		
+			
 		session.close();		
 	}
 }
