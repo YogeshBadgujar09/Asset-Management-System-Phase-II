@@ -44,8 +44,13 @@ public class InputFields {
 				flag = false ;
 			}
 		}while(!flag);
-			
-		return asset;
+		
+		
+		if(SingletonDesignPattren.validationCheck(asset)) {
+			return asset;
+		}else {
+			return null;
+		}
 	}
 	
 	public String selectAssetType() {
